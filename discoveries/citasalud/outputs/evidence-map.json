@@ -1,0 +1,21 @@
+{
+  "personas": [
+    { "name": "Psicóloga clínica", "role": "psicólogo clínico", "primary": true },
+    { "name": "Recepcionista y secretaria administrativa", "role": "recepcionista y secretaria administrativa", "primary": true },
+    { "name": "Gestor administrativo y contable", "role": "gestor administrativo y contable", "primary": true },
+    { "name": "Paciente", "role": "paciente", "primary": false }
+  ],
+  "pains": [
+    { "id": "informacion-dispersa-notas", "source": "doctora.md", "persona": "Psicóloga clínica" },
+    { "id": "perdida-documentos-confidenciales", "source": "doctora.md", "persona": "Psicóloga clínica" },
+    { "id": "falta-control-acceso-informes", "source": "doctora.md", "persona": "Psicóloga clínica" },
+    { "id": "falta-seguimiento-sesiones-acordadas", "source": "doctora.md", "persona": "Psicóloga clínica" },
+    { "id": "registro-pagos-disperso", "source": "gestor_administrativo.md", "persona": "Gestor administrativo y contable" },
+    { "id": "falta-visibilidad-horas-facturacion", "source": "gestor_administrativo.md", "persona": "Gestor administrativo y contable" },
+    { "id": "recordatorios-pago-tardios", "source": "gestor_administrativo.md", "persona": "Gestor administrativo y contable" },
+    { "id": "datos-pacientes-sin-centralizar", "source": "gestor_administrativo.md", "persona": "Gestor administrativo y contable" },
+    { "id": "gestion-manual-citas-choques", "source": "recepcionista.md", "persona": "Recepcionista y secretaria administrativa" },
+    { "id": "comunicacion-cambios-cita-dispersa", "source": "recepcionista.md", "persona": "Recepcionista y secretaria administrativa" },
+    { "id": "falta-trazabilidad-envio-informes", "source": "recepcionista.md", "persona": "Recepcionista y secretaria administrativa" }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "hypotheses": [
+    {
+      "id": "H-01",
+      "risk": "alto",
+      "assumption": "Que la recepcionista y el gestor administrativo actualizarán el registro centralizado de forma consistente, en vez de abandonarlo como hoy abandonan parcialmente el Excel.",
+      "hypothesis": "Creemos que la recepcionista y el gestor administrativo registrarán sesiones y pagos de forma consistente si el registro reemplaza por completo sus herramientas actuales (Excel, papel) sin exigir doble tarea, porque hoy dejan el Excel a medias cuando se vuelve una carga adicional en lugar de un reemplazo.",
+      "metric": "Porcentaje de sesiones y pagos del mes piloto que quedan registrados dentro de las 24 horas de ocurridos, sin que se les recuerde manualmente.",
+      "threshold": "Al menos 80% de los registros del mes piloto se completan dentro de 24 horas sin recordatorio manual del investigador.",
+      "experiment": "Mago de Oz / Concierge: durante 2 semanas, recepcionista y gestor registran cada sesión/pago en una planilla estructurada que simula la ficha (sin construir el sistema real); se mide cuántos registros se completan a tiempo sin que se les recuerde.",
+      "decision": "Si pasa (>=80%) -> construir el módulo de registro tal como está diseñado. Si falla (<80%) -> rediseñar el punto de captura (integrarlo a una acción que ya hacen, como el cobro o el envío del informe) antes de construir, o descartar el registro manual como mecanismo de entrada."
+    },
+    {
+      "id": "H-02",
+      "risk": "alto",
+      "assumption": "Que un recordatorio automático de pago, enviado cerca del vencimiento, reduce el tiempo de cobro sin generar rechazo en el paciente.",
+      "hypothesis": "Creemos que los pacientes pagarán más rápido si reciben un recordatorio automático cerca de la fecha de vencimiento, en lugar del seguimiento manual tardío actual, porque hoy buena parte del atraso se debe a que nadie avisa a tiempo, no a que el paciente no quiera pagar.",
+      "metric": "Días promedio entre la fecha de vencimiento y el pago efectivo, y porcentaje de pacientes que se quejan del recordatorio.",
+      "threshold": "Reducir al menos 30% los días promedio de atraso respecto al mes anterior, con menos de 5% de pacientes que se quejan del recordatorio.",
+      "experiment": "Fake door / Mago de Oz: durante 4 semanas, recepcionista o gestor envían manualmente (con una plantilla fija) el recordatorio simulado en la fecha exacta de vencimiento a un grupo de pacientes con pagos por vencer, y se compara el tiempo de pago contra el grupo sin ese envío sistemático.",
+      "decision": "Si pasa (reducción >=30%, quejas <5%) -> automatizar el envío tal como está diseñado. Si falla -> revisar el contenido/tono/canal del mensaje antes de automatizar, o descartar el recordatorio automático como palanca de cobro si la causa real del atraso no es la falta de aviso."
+    },
+    {
+      "id": "H-03",
+      "risk": "medio",
+      "assumption": "Que tener una ficha centralizada (sesiones, informes, pagos) reduce el tiempo/esfuerzo del staff para responder una consulta de seguimiento, frente a buscar en Excel/carpetas/preguntar a un colega.",
+      "hypothesis": "Creemos que el staff resolverá una consulta de seguimiento de paciente sin salir de una ficha centralizada si esa ficha reúne los tres datos que hoy están dispersos (sesiones, informes, pagos), porque las tres entrevistas señalan que el tiempo se pierde saltando entre Excel, carpetas y preguntas a otro colega, no en la consulta en sí.",
+      "metric": "Porcentaje de consultas de seguimiento reales que el staff resuelve sin salir de la ficha (sin abrir Excel, carpetas, mail, ni preguntar a otro colega).",
+      "threshold": "Al menos 70% de una muestra de 20 consultas reales durante el piloto se resuelven solo con la ficha.",
+      "experiment": "Prototipo desechable: maqueta clicable (o planilla de una sola vista por paciente) con datos reales de 5 a 10 pacientes, usada por el staff durante 1-2 semanas para responder consultas reales, observando si recurren a otras fuentes.",
+      "decision": "Si pasa (>=70%) -> avanzar a construir el sistema real con ese diseño de ficha. Si falla (<70%) -> identificar qué dato falta en la ficha y rediseñarla antes de construir."
+    },
+    {
+      "id": "H-04",
+      "risk": "medio",
+      "assumption": "Que restringir el contenido de los informes a la recepcionista (solo metadata/estado de envío) no genera fricción que la obligue a pedir igual el contenido por otra vía.",
+      "hypothesis": "Creemos que la recepcionista podrá gestionar el envío de informes sin ver su contenido sin que esto le genere fricción operativa, si el sistema le muestra todo el metadato que necesita (destinatario, fecha, estado), porque ella misma pide hoy no ver el contenido — el riesgo es que falte algún dato operativo que hoy obtiene mirando el documento.",
+      "metric": "Número de veces por semana que la recepcionista necesita pedirle a la psicóloga información que estaba en el contenido del informe porque el metadato no alcanzó.",
+      "threshold": "1 vez por semana o menos durante las primeras 3 semanas de uso del prototipo.",
+      "experiment": "Mago de Oz: durante 2-3 semanas, la psicóloga entrega solo metadata de cada informe (sin contenido) a la recepcionista en una planilla; se registra cada vez que la recepcionista necesita pedir algo adicional.",
+      "decision": "Si pasa (<=1/semana) -> construir el control de acceso tal como está diseñado. Si falla (>1/semana) -> ampliar el metadato visible para la recepcionista, sin exponer el contenido clínico, antes de construir."
+    }
+  ]
+}
